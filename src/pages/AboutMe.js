@@ -23,7 +23,7 @@ const AboutMe = () => (
       </Typography>
       
       <img
-        src="../assets/Mereck-Headshot.JPG" // Replace with your image path
+        src="../assets/Mereck-Headshot.JPG" 
         alt="Mereck McGowan"
         style={{ width: '100%', maxHeight: '300px', objectFit: 'cover', marginTop: '10px' }}
       />
