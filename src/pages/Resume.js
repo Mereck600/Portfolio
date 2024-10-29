@@ -25,7 +25,7 @@ const Resume = () => {
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: 1, delay: 1 }}
         style={{ flex: 1, textAlign: 'left', marginRight: '20px' }} // Left side for resume
       >
         <Typography variant="h4" component="h2">Resume</Typography>

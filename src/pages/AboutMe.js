@@ -8,7 +8,7 @@ const AboutMe = () => (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1.5 }}
       style={{ width: '100%' }} // Ensure full width for child elements
     >
       <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 2 }}>
