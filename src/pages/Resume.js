@@ -16,7 +16,7 @@ const Resume = () => {
 
   const handleDownload = () => {
     // Replace with your resume path
-    window.open('../assets/MereckMcGowanResume.pdf', '_blank'); // Open the resume in a new tab
+    window.open('../assets/MereckMcGowanResume1.pdf', '_blank'); // Open the resume in a new tab
     handleClose(); // Close the dialog after download
   };
 
