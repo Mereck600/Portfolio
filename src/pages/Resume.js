@@ -34,6 +34,7 @@ const Resume = () => {
         alignItems: isMobile ? 'center' : 'flex-start', // Center items on mobile
         width: isMobile ? '90%' : '100%',
         margin: '0 auto', // Center on smaller screens
+        
         maxWidth: '800px',
         gap: isMobile ? '20px' : '0', // Add space between items on mobile
       }}
@@ -76,17 +77,18 @@ const Resume = () => {
           marginTop: isMobile ? '10px' : '0',
         }}
       >
-        <Typography variant="h4" component="h2">Contact</Typography>
+        <Typography variant="h4" component="h2">LinkedIn</Typography>
         <Typography variant="body1" style={{ marginTop: '10px' }}>
-          Feel free to reach out!
+          Feel free to follow me!
         </Typography>
         <Button
           variant="contained"
           color="primary"
-          href="mailto:merecmcg@gmail.com"
+          href="https://www.linkedin.com/in/mereck-mcgowan-3b68232b6/" 
+          target = "_blank"
           style={{ marginTop: '10px' }}
         >
-          Email Me
+          LinkedIn
         </Button>
       </motion.div>
 
