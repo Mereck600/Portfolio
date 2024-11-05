@@ -29,7 +29,7 @@ const Projects = () => (
         My Projects
       </Typography>
       <Typography variant="body1" style={{ marginTop: '10px' }}>
-        Here are some of the websites I've recently created:
+        Here are some of the projects I've recently created:
       </Typography>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
         {projects.map((project, index) => (

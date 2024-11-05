@@ -4,15 +4,19 @@ import { Container } from '@mui/material';
 import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
+import Social from './pages/Social';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import Home from './pages/Home'
 
 const App = () => {
   return (
-    <Container maxWidth="md" style={{ marginTop: '20px' }}>
+    <Container maxWidth="md" style={{ marginTop: '20px', marginBottom:'15px' }}>
       {/* <NavBar/> */}
       <AboutMe />
       <Projects />
+      <Home />
+      <Social />
       <Resume />
       
     </Container>
