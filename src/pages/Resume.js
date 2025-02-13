@@ -97,7 +97,7 @@ const Resume = () => {
         <DialogTitle>Download Resume</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to download your resume?
+            Here is the download for my resume!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
