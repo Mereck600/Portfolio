@@ -8,22 +8,22 @@ const AboutMe = () => (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1.5 }}
       style={{ width: '100%' }} // Ensure full width for child elements
     >
       <Typography variant="h2" sx={{ fontWeight: 'bold', mb: 2 }}>
         Hi, I'm Mereck McGowan
       </Typography>
       <Typography variant="h5" sx={{ mb: 2 }}>
-        Software Developer | Designer | Tech Enthusiast
+        Software Developer | Web Designer | Machine Learning Researcher
       </Typography>
       <Typography variant="body1" sx={{ maxWidth: 600, mx: 'auto', mb: 3 }}>
         I'm passionate about creating sleek, modern web experiences and enjoy working on both frontend and backend
-        projects. Check out some of my work below!
+        projects. I develop new machine learning models with a sepeciality in CBR research. Check out some of my work below!
       </Typography>
       
       <img
-        src="../assets/Mereck-Headshot.JPG" // Replace with your image path
+        src="../assets/Mereck-Headshot.JPG" 
         alt="Mereck McGowan"
         style={{ width: '100%', maxHeight: '300px', objectFit: 'cover', marginTop: '10px' }}
       />

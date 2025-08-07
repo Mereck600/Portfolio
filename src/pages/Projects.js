@@ -23,13 +23,13 @@ const Projects = () => (
     <motion.div
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
+      transition={{ duration: 1, delay: 0.7 }}
     >
       <Typography variant="h4" component="h2">
         My Projects
       </Typography>
       <Typography variant="body1" style={{ marginTop: '10px' }}>
-        Here are some of the websites I've recently created:
+        Here are some of the projects I've recently created:
       </Typography>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
         {projects.map((project, index) => (

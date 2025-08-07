@@ -1,32 +1,56 @@
 // src/components/Resume.js
 import React, { useState } from 'react';
-import { Paper, Typography, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Paper, Typography, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
 const Resume = () => {
-  const [open, setOpen] = useState(false); // State to control dialog visibility
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true); // Open the dialog
+    setOpen(true);
   };
 
   const handleClose = () => {
-    setOpen(false); // Close the dialog
+    setOpen(false);
   };
 
   const handleDownload = () => {
-    // Replace with your resume path
-    window.open('../assets/MereckMcGowanResume.pdf', '_blank'); // Open the resume in a new tab
-    handleClose(); // Close the dialog after download
+    window.open('../assets/Mereck McGowan Resuume.pdf', '_blank');
+    handleClose();
   };
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Set breakpoint for responsive behavior
+
   return (
-    <Paper elevation={3} style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', height: '100%' }}>
+    <Paper
+      elevation={3}
+      style={{
+        padding: '20px',
+        display: 'flex',
+        flexDirection: isMobile ? 'column' : 'row', // Stack on mobile
+        justifyContent: 'space-between',
+        alignItems: isMobile ? 'center' : 'flex-start', // Center items on mobile
+        width: isMobile ? '90%' : '100%',
+        margin: '0 auto', // Center on smaller screens
+        
+        maxWidth: '800px',
+        gap: isMobile ? '20px' : '0', // Add space between items on mobile
+      }}
+    >
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        style={{ flex: 1, textAlign: 'left', marginRight: '20px' }} // Left side for resume
+        transition={{ duration: 1, delay: 1 }}
+        style={{
+          flex: 1,
+          textAlign: 'left',
+          marginRight: isMobile ? '0' : '20px', // Remove margin on mobile
+          marginLeft: isMobile ? '0' : '50px', // Remove margin on mobile
+          width: '100%',
+          textAlign: isMobile ? 'center' : 'left', // Center text on mobile
+        }}
       >
         <Typography variant="h4" component="h2">Resume</Typography>
         <Typography variant="body1" style={{ marginTop: '10px' }}>
@@ -35,7 +59,7 @@ const Resume = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={handleClickOpen} // Open the dialog on button click
+          onClick={handleClickOpen}
           style={{ marginTop: '10px' }}
         >
           Download Resume
@@ -46,19 +70,25 @@ const Resume = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        style={{ flex: 1, textAlign: 'center' }} // Right side for contact me
+        style={{
+          flex: 1,
+          textAlign: 'center',
+          width: '100%',
+          marginTop: isMobile ? '10px' : '0',
+        }}
       >
-        <Typography variant="h4" component="h2">Contact</Typography>
+        <Typography variant="h4" component="h2">LinkedIn</Typography>
         <Typography variant="body1" style={{ marginTop: '10px' }}>
-          Feel free to reach out!
+          Feel free to follow me!
         </Typography>
         <Button
           variant="contained"
           color="primary"
-          href="mailto:merecmcg@gmail.com" // Replace with your email
+          href="https://www.linkedin.com/in/mereck-mcgowan-3b68232b6/" 
+          target = "_blank"
           style={{ marginTop: '10px' }}
         >
-          Email Me
+          LinkedIn
         </Button>
       </motion.div>
 
@@ -67,7 +97,7 @@ const Resume = () => {
         <DialogTitle>Download Resume</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you want to download your resume?
+            Here is the download for my resume!
           </DialogContentText>
         </DialogContent>
         <DialogActions>
