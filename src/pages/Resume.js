@@ -16,7 +16,7 @@ const Resume = () => {
   };
 
   const handleDownload = () => {
-    window.open('../assets/MereckMcGowanResume1.pdf', '_blank');
+    window.open('../assets/Mereck McGowan Resuume.pdf', '_blank');
     handleClose();
   };
 

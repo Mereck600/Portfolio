@@ -15,11 +15,11 @@ const AboutMe = () => (
         Hi, I'm Mereck McGowan
       </Typography>
       <Typography variant="h5" sx={{ mb: 2 }}>
-        Software Developer | Designer | Tech Enthusiast
+        Software Developer | Web Designer | Machine Learning Researcher
       </Typography>
       <Typography variant="body1" sx={{ maxWidth: 600, mx: 'auto', mb: 3 }}>
         I'm passionate about creating sleek, modern web experiences and enjoy working on both frontend and backend
-        projects. Check out some of my work below!
+        projects. I develop new machine learning models with a sepeciality in CBR research. Check out some of my work below!
       </Typography>
       
       <img
