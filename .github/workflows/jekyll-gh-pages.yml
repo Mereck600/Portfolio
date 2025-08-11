@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          CI: false
       # If your output folder is "dist" (Vite) or "out" (Next export), change this:
       - uses: actions/upload-pages-artifact@v3
         with:
