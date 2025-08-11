@@ -1,27 +1,29 @@
 // src/components/Resume.js
 import React, { useState } from 'react';
-import { Paper, Typography, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, useMediaQuery } from '@mui/material';
+import {
+  Paper, Typography, Button,
+  Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle,
+  useMediaQuery
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
 const Resume = () => {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClickOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
+  // Put the PDF in /public/assets/ and use a hyphenated file name (no spaces)
+  // e.g., public/assets/Mereck-McGowan-Resume.pdf
   const handleDownload = () => {
-    window.open('../assets/Mereck McGowan Resuume.pdf', '_blank');
+    const url = `${process.env.PUBLIC_URL}/assets/Mereck-McGowan-Resume.pdf`;
+    window.open(url, '_blank', 'noopener,noreferrer');
     handleClose();
   };
-
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Set breakpoint for responsive behavior
 
   return (
     <Paper
@@ -29,14 +31,14 @@ const Resume = () => {
       style={{
         padding: '20px',
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row', // Stack on mobile
+        flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'space-between',
-        alignItems: isMobile ? 'center' : 'flex-start', // Center items on mobile
+        alignItems: isMobile ? 'center' : 'flex-start',
         width: isMobile ? '90%' : '100%',
-        margin: '0 auto', // Center on smaller screens
-        
+        margin: '0 auto',
+        marginBottom: '15px',
         maxWidth: '800px',
-        gap: isMobile ? '20px' : '0', // Add space between items on mobile
+        gap: isMobile ? '20px' : '0',
       }}
     >
       <motion.div
@@ -45,11 +47,10 @@ const Resume = () => {
         transition={{ duration: 1, delay: 1 }}
         style={{
           flex: 1,
-          textAlign: 'left',
-          marginRight: isMobile ? '0' : '20px', // Remove margin on mobile
-          marginLeft: isMobile ? '0' : '50px', // Remove margin on mobile
+          marginRight: isMobile ? '0' : '20px',
+          marginLeft: isMobile ? '0' : '50px',
           width: '100%',
-          textAlign: isMobile ? 'center' : 'left', // Center text on mobile
+          textAlign: isMobile ? 'center' : 'left', // ← keep only this one
         }}
       >
         <Typography variant="h4" component="h2">Resume</Typography>
@@ -84,15 +85,14 @@ const Resume = () => {
         <Button
           variant="contained"
           color="primary"
-          href="https://www.linkedin.com/in/mereck-mcgowan-3b68232b6/" 
-          target = "_blank"
+          href="https://www.linkedin.com/in/mereck-mcgowan-3b68232b6/"
+          target="_blank"
           style={{ marginTop: '10px' }}
         >
           LinkedIn
         </Button>
       </motion.div>
 
-      {/* Confirmation Dialog */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Download Resume</DialogTitle>
         <DialogContent>
@@ -101,12 +101,8 @@ const Resume = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleDownload} color="primary">
-            Download
-          </Button>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleDownload} autoFocus>Download</Button>
         </DialogActions>
       </Dialog>
     </Paper>
