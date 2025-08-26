@@ -11,10 +11,10 @@ const projects = [
     link: 'https://northlandpsychological.com/',
   },
   {
-    title: 'Reinforcement911',
-    description: 'Website for a non-profit based out of Hermantown, MN.',
-    image: '../assets/r911Image.png', // Replace with your project image URL
-    link: 'https://reinforcement911.org/',
+    title: 'Reinforcement Consulting',
+    description: 'Website for a consulting company based out of Hermantown, MN.',
+    image: '../assets/image.png', // Replace with your project image URL
+    link: 'https://reinforcementconsulting.com/',
   },
 ];
 
