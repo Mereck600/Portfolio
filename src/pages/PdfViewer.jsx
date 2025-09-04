@@ -22,9 +22,9 @@ export default function PdfViewer({ src, title }) {
 
   const fileName = useMemo(() => {
     try {
-      return (pdfUrl?.split("/").pop() || "/docs/Mereck McGowan Resume.pdf").split("?")[0];
+      return (pdfUrl?.split("/").pop() || "/docs/Mereck-McGowan-Resume.pdf").split("?")[0];
     } catch {
-      return "/docs/Mereck McGowan Resume.pdf";
+      return "/docs/Mereck-McGowan-Resume.pdf";
     }
   }, [pdfUrl]);
 
@@ -52,6 +52,14 @@ export default function PdfViewer({ src, title }) {
             rel="noopener noreferrer"
           >
             Open in New Tab
+          </Button>
+          <Button
+            variant="outlined"
+            href="/"
+            
+            rel="noopener noreferrer"
+          >
+            Home
           </Button>
         </Toolbar>
       </AppBar>

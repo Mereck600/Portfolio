@@ -20,7 +20,7 @@ const Home = () => {
             Skills
           </Typography>
           <Typography variant="h5" sx={{ mb: 2 }}>
-            Python | JavaScript | Java
+            Python | JavaScript | Java | C | C++ | ASM
           </Typography>
           <Typography variant="h6" sx={{ maxWidth: 600, mx: 'auto', mb: 3 }}>
             Other skills:

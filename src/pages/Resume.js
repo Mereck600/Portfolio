@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // <-- add this
 
 const Resume = () => {
   const [open, setOpen] = useState(false);
@@ -17,13 +18,10 @@ const Resume = () => {
   const handleClickOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // Put the PDF in /public/assets/ and use a hyphenated file name (no spaces)
-  // e.g., public/assets/Mereck-McGowan-Resume.pdf
-  const handleDownload = () => {
-    const url = `${process.env.PUBLIC_URL}/assets/Mereck-McGowan-Resume.pdf`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-    handleClose();
-  };
+  // Put the PDF at: public/assets/Mereck-McGowan-Resume.pdf (no spaces)
+  const publicBase = process.env.PUBLIC_URL || '';
+  const pdfPath = `${publicBase}/assets/Mereck-McGowan-Resume.pdf`;
+  const encoded = encodeURIComponent(pdfPath); // safe for query param
 
   return (
     <Paper
@@ -50,29 +48,36 @@ const Resume = () => {
           marginRight: isMobile ? '0' : '20px',
           marginLeft: isMobile ? '0' : '50px',
           width: '100%',
-          textAlign: isMobile ? 'center' : 'left', // ← keep only this one
+          textAlign: isMobile ? 'center' : 'left',
         }}
       >
         <Typography variant="h4" component="h2">Resume</Typography>
         <Typography variant="body1" style={{ marginTop: '10px' }}>
-          You can download my resume below:
+          You can view or download my resume below:
         </Typography>
-        {/* <Button
-          variant="contained"
-          color="primary"
-          onClick={handleClickOpen}
-          style={{ marginTop: '10px' }}
-        >
-          Download Resume
-        </Button> */}
+
+        {/* Route to the PDF viewer; with HashRouter this becomes /#/view?file=... */}
         <Button
           variant="contained"
           color="primary"
-          href="/view"
+          component={Link}
+          to={`/view?file=${encoded}`}
           style={{ marginTop: '10px' }}
         >
-          Download Resume
+          View Resume
         </Button>
+
+        {/* If you want a direct raw download button too: */}
+        {/* <Button
+          variant="outlined"
+          color="primary"
+          href={pdfPath}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ marginTop: '10px', marginLeft: '10px' }}
+        >
+          Download (Direct)
+        </Button> */}
       </motion.div>
 
       <motion.div
@@ -101,6 +106,7 @@ const Resume = () => {
         </Button>
       </motion.div>
 
+      {/* Keep the dialog if you want an extra confirmation flow */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Download Resume</DialogTitle>
         <DialogContent>
@@ -110,7 +116,15 @@ const Resume = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleDownload} autoFocus>Download</Button>
+          <Button
+            onClick={() => {
+              window.open(pdfPath, '_blank', 'noopener,noreferrer');
+              handleClose();
+            }}
+            autoFocus
+          >
+            Download
+          </Button>
         </DialogActions>
       </Dialog>
     </Paper>
