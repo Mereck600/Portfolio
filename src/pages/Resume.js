@@ -57,10 +57,18 @@ const Resume = () => {
         <Typography variant="body1" style={{ marginTop: '10px' }}>
           You can download my resume below:
         </Typography>
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           onClick={handleClickOpen}
+          style={{ marginTop: '10px' }}
+        >
+          Download Resume
+        </Button> */}
+        <Button
+          variant="contained"
+          color="primary"
+          href="/view"
           style={{ marginTop: '10px' }}
         >
           Download Resume
